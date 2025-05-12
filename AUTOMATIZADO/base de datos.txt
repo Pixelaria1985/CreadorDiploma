@@ -1,0 +1,62 @@
+--NOMBRE DE LA BASE DE DATOS--
+diplomas
+
+--NOMBRE DE LAS TABLAS--
+CREATE TABLE alumnos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE docentes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    titulo VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE directores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    titulo VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE cursos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE certificados (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    alumno_id INT,
+    docente_id INT,
+    director_id INT,
+    curso_id INT,
+    fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (alumno_id) REFERENCES alumnos(id),
+    FOREIGN KEY (docente_id) REFERENCES docentes(id),
+    FOREIGN KEY (director_id) REFERENCES directores(id),
+    FOREIGN KEY (curso_id) REFERENCES cursos(id)
+);
+
+-----------------------------------------------------------------------------------------------
+
+--PAGINAS--
+alumnos.php: Formulario para agregar alumnos
+docentes.php: Formulario para agregar docentes
+directores.php: Formulario para agregar directores
+cursos.php: Formulario para agregar cursos
+generar_certificado.php: Formulario donde seleccionás alumno, curso, director e instructor
+listado_certificados.php: Lista de certificados generados con botón para descargar PDF
+
+--FUNCIONES--
+crear_pdf.php: Funcion que crea el PDF
+
+
+
+
+
+
+
+
+
+
+

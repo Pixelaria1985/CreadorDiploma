@@ -1,1 +1,0 @@
-Carpeta images = Ahi va la imagen del modelo de certificado
